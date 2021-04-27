@@ -22,8 +22,6 @@ async function loginFormHandler(event) {
   }
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -41,13 +39,15 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-    // check the response status
+
     if (response.ok) {
-      console.log('success');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
   }
 }
 
-document.querySelector('.signup-form').addEventListener('submit, signupFormHandler')
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
